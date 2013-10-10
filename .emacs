@@ -1,6 +1,10 @@
+; Load extras in lisp dir
 (let ((default-directory "~/.emacs.d/lisp/"))
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
+
+; Move #backup# files to a folder
+(setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 
 (require 'flymake)
 (require 'flymake-cursor)
