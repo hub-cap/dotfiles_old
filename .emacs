@@ -1,19 +1,23 @@
 ; Load extras in lisp dir
-(let ((default-directory "~/.emacs.d/lisp/"))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
+;(let ((default-directory "~/.emacs.d/lisp/"))
+;  (normal-top-level-add-to-load-path '("."))
+;  (normal-top-level-add-subdirs-to-load-path))
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ; Move #backup# files to a folder
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 
 (require 'flymake)
-(require 'flymake-cursor)
+;(require 'flymake-cursor)
 
-(custom-set-faces
- '(flymake-errline ((((class color)) (:underline "red"))))
- '(flymake-warnline ((((class color)) (:underline "yellow")))))
-
-(global-set-key [f4] 'flymake-goto-next-error)
+;(custom-set-faces
+; '(flymake-errline ((((class color)) (:underline "red"))))
+; '(flymake-warnline ((((class color)) (:underline "yellow")))))
+;
+;(global-set-key [f4] 'flymake-goto-next-error)
 
 (defun my-flymake-show-help ()
   (when (get-char-property (point) 'flymake-overlay)
@@ -37,3 +41,9 @@
           '("\\.py\\'" flymake-pyflakes-init)))
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
+
+(setq
+  ;; don't show annoing startup msg
+  inhibit-startup-message t
+  ;; follow symlinks and don't ask
+  vc-follow-symlinks t)

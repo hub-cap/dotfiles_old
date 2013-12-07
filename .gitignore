@@ -1,3 +1,4 @@
 .emacs~
 auto-save-list/
 .emacs.d/saves/*
+.emacs.d/elpa/
