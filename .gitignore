@@ -2,3 +2,6 @@
 auto-save-list/
 .emacs.d/saves/*
 .emacs.d/elpa/
+.emacs.d/url/
+.emacs.d/tramp
+
